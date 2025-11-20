@@ -1,0 +1,67 @@
+/* AnimatedBackground.css */
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505; /* Hitam pekat tapi tidak #000 */
+  overflow: hidden;
+  z-index: -1; /* Pastikan di belakang konten */
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px); /* Ini kuncinya: blur yang sangat tinggi */
+  opacity: 0.6;
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+/* Orb 1: Warna Ungu/Biru (Kiri Atas) */
+.orb-1 {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, #4c1d95 0%, #1e1b4b 100%);
+  animation-duration: 15s;
+}
+
+/* Orb 2: Warna Cyan/Teal (Kanan Bawah) */
+.orb-2 {
+  bottom: -10%;
+  right: -10%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, #0e7490 0%, #0f172a 100%);
+  animation-duration: 12s;
+  animation-delay: -5s;
+}
+
+/* Orb 3: Aksen Tengah (Opsional) */
+.orb-3 {
+  top: 40%;
+  left: 40%;
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(circle, #be185d 0%, transparent 70%);
+  opacity: 0.4;
+  animation-duration: 18s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
