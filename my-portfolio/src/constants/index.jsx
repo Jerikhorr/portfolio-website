@@ -1,6 +1,8 @@
 import projectImg from '../assets/tester.jpeg'; 
 import projectImg1 from '../assets/DjejakSoemoet.png'; 
-import profileImg from '../assets/tester.jpeg';
+import profileImg from '../assets/profileimage.jpeg';
+import projectImg3 from '../assets/bimbingin.png';
+import projectImg4 from '../assets/webport.png';
 
 // Import semua icons di sini
 import {
@@ -60,25 +62,23 @@ export const projects = [
     description: "DjedjakSoemoet is a web platform built with Vite, React.js, and Tailwind CSS to showcase the rich culture, tourism, and cuisine of North Sumatra.",
     tech: ["React", "Tailwind", "Vite"],
     image: projectImg1,
-    github: "https://github.com/username/repo",
-    demo: "https://djedjaksoemoet.com",
+    demo: "https://djedjaksoemoet.vercel.app/",
   },
   {
     title: "Prototype Bimbingin Mobile Apps",
     description: "A high-fidelity Figma prototype for 'Bimbingin,' a mobile app concept designed to streamline the academic guidance process between students and lecturers.",
     tech: ["Figma", "UI/UX"],
-    image: projectImg,
-    github: "#", 
-    demo: "https://figma.com/...",
+    image: projectImg3,
+    demo: "https://www.figma.com/proto/kcv77zkQqa0wnAY4YCGnXW/HCI---Bimbingin?node-id=72-3201&p=f&t=nLnLfz7BZsnrrBaz-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=72%3A3201&show-proto-sidebar=1",
   },
   {
-    title: "AI Image Generator",
+    title: "Portfolio Website",
     description: "Web interface for generating images using OpenAI DALL-E API with prompt suggestions.",
-    tech: ["MERN Stack", "OpenAI API"],
-    image: projectImg,
+    tech: ["React", "Tailwind", "GSAP"],
+    image: projectImg4,
     github: "https://github.com",
-    demo: "https://vercel.com",
   },
+  
 ];
 
 // --- CERTIFICATES DATA ---

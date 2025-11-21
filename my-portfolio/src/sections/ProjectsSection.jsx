@@ -1,96 +1,93 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// Import data projects dari file constants yang baru dibuat
 import { projects } from '../constants'; 
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectsSection = () => {
   const sectionRef = useRef(null);
-  const headingRef = useRef(null);
   const cardsRef = useRef([]);
 
-  // NOTE: Array 'projects' sudah dihapus dari sini karena sudah di-import dari '../constants'
-
   useEffect(() => {
-    // Animasi Judul
-    gsap.fromTo(headingRef.current,
+    gsap.fromTo(cardsRef.current,
       { y: 50, opacity: 0 },
       {
-        y: 0, opacity: 1, duration: 1, ease: "power3.out",
+        y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
         }
       }
     );
-
-    // Animasi Kartu Project
-    gsap.fromTo(cardsRef.current,
-      { y: 50, opacity: 0 },
-      {
-        y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-        }
-      }
-    );
   }, []);
 
   return (
-    <section ref={sectionRef} id="projects" className="min-h-screen py-20 px-6 md:px-20 bg-transparent relative z-10">
-      <div className="max-w-6xl mx-auto">
+    <section ref={sectionRef} id="projects" className="py-32 px-6 md:px-20 relative z-10">
+      <div className="max-w-7xl mx-auto">
         
-        {/* Heading */}
-        <div ref={headingRef} className="mb-16 text-center md:text-left">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Projects</span>
-          </h2>
-          <p className="text-gray-400 max-w-xl text-lg mx-auto md:mx-0">
-            Here are some of the projects I've worked on. Each project reflects my passion for clean code and modern design.
-          </p>
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-2 text-white tracking-tight">My Projects!</h2>
+            <p className="text-muted">Showcase of technical exploration.</p>
+          </div>
+          <div className="mt-4 md:mt-0 text-primary font-mono text-sm">
+            // {projects.length} PROJECTS DETECTED
+          </div>
         </div>
 
-        {/* Grid Projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           {projects.map((project, index) => (
             <div 
               key={index} 
               ref={el => cardsRef.current[index] = el}
-              className="group flex flex-col bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10 cursor-pointer"
+              className="group cursor-pointer"
             >
-              {/* Image Area - DIPERBESAR (h-72) */}
-              <div className="relative h-72 w-full overflow-hidden">
+              {/* Image Container - MODIFIED: Hapus Grayscale, Ganti Brightness */}
+              <div className="relative aspect-video overflow-hidden rounded-lg mb-6 bg-surface border border-white/5 group-hover:border-primary/50 transition-colors duration-500">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                  // PERUBAHAN DISINI: Hapus 'grayscale', tambah 'brightness-75' jadi 'brightness-110' saat hover
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out brightness-90 group-hover:brightness-110" 
                 />
                 
-                {/* Overlay gelap tipis saat hover */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                {/* Overlay Gradient Halus (Bukan Hitam Pekat) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-300"></div>
+                
+                {/* Floating Links */}
+                <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-10">
+                  {project.github && project.github !== '#' && (
+                    <a href={project.github} target="_blank" className="p-2 bg-white text-black rounded-full hover:bg-primary transition-colors shadow-lg shadow-primary/20">
+                      <FaGithub />
+                    </a>
+                  )}
+                  {project.demo && project.demo !== '#' && (
+                    <a href={project.demo} target="_blank" className="p-2 bg-white text-black rounded-full hover:bg-primary transition-colors shadow-lg shadow-primary/20">
+                      <FaExternalLinkAlt size={12} />
+                    </a>
+                  )}
+                </div>
               </div>
 
-              {/* Content Area */}
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed flex-grow">
-                  {project.description}
-                </p>
-                
-                {/* Tech Stack Tags */}
-                <div className="flex flex-wrap gap-2 mt-auto">
+              {/* Text Content */}
+              <div>
+                <div className="flex flex-wrap gap-2 mb-3">
                   {project.tech.map((tech, i) => (
-                    <span key={i} className="px-3 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
+                    <span key={i} className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/5 border border-primary/20 px-2 py-1 rounded hover:bg-primary/20 transition-colors">
                       {tech}
                     </span>
                   ))}
                 </div>
+                <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-muted text-sm line-clamp-2 leading-relaxed group-hover:text-gray-300 transition-colors">
+                  {project.description}
+                </p>
               </div>
             </div>
           ))}

@@ -7,12 +7,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: '#0a0a0a', // Deep black/gray background
-        primary: '#00d8ff', // Cyan accent (React color)
-        secondary: '#64748b',
+        dark: '#050505', // Lebih pekat mendekati VSPO
+        surface: '#121212', // Untuk kartu/elemen di atas background
+        primary: '#00d8ff', // Cyan (tetap)
+        secondary: '#8b5cf6', // Purple
+        accent: '#ffffff', // Putih tajam untuk teks utama
+        muted: '#94a3b8', // Abu-abu untuk teks sekunder
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'], // Pastikan Inter ter-load di index.html/css
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'glass': 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)',
+      },
+      boxShadow: {
+        'glow': '0 0 20px rgba(0, 216, 255, 0.15)',
       }
     },
   },

@@ -17,7 +17,9 @@ const ContactSection = () => {
 
         {/* Tombol Email Besar */}
         <a 
-          href="mailto:emailanda@example.com" 
+          href="https://www.linkedin.com/in/jerikho-ruben/" 
+          target='_blank'
+          rel='noopener noreferrer'
           className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-purple-600 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-primary/50 hover:-translate-y-1 transition-all duration-300 mb-16"
         >
           <FaLinkedin />
