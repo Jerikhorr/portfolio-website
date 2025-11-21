@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
+import { FaBars, FaTimes, FaGithub, FaLinkedin, FaDownload, FaEye } from 'react-icons/fa'; // Ganti FaDownload jadi FaEye opsional
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  
   const cvUrl = "/CV_JERIKHO_ONDA.pdf"; 
 
   useEffect(() => {
@@ -44,8 +45,14 @@ const Navbar = () => {
           
           <div className="w-[1px] h-5 bg-white/20"></div>
 
-          <a href={cvUrl} download className="flex items-center gap-2 px-5 py-2 bg-white text-dark text-sm font-bold rounded-full hover:bg-primary transition-all duration-300">
-            <FaDownload size={12} /> <span>Resume</span>
+          {/* MODIFIED: Open in New Tab */}
+          <a 
+            href={cvUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2 bg-white text-dark text-sm font-bold rounded-full hover:bg-primary transition-all duration-300"
+          >
+            <span>CV</span>
           </a>
         </div>
 
@@ -63,7 +70,15 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a href={cvUrl} download className="text-center py-3 bg-white/10 rounded-lg text-white font-bold">Download CV</a>
+          {/* MODIFIED Mobile Button */}
+          <a 
+            href={cvUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-center py-3 bg-white/10 rounded-lg text-white font-bold"
+          >
+            View Resume
+          </a>
         </div>
       )}
     </nav>

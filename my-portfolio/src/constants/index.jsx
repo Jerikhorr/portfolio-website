@@ -11,7 +11,8 @@ import {
 } from 'react-icons/fa';
 import {
   SiTailwindcss, SiNextdotjs, SiTypescript, SiKotlin, SiFirebase, 
-  SiAndroidstudio, SiMysql, SiUdemy, SiGoogle, SiCoursera
+  SiAndroidstudio, SiMysql, SiUdemy, SiGoogle, SiCoursera,
+  SiSololearn, SiRevolut, SiHuawei, SiBiome // Tambahkan icon baru di sini
 } from 'react-icons/si';
 
 // --- NAVIGATION LINKS ---
@@ -24,9 +25,9 @@ export const navLinks = [
 
 // --- SOCIAL LINKS ---
 export const socialLinks = {
-  email: "mailto:emailanda@example.com",
-  linkedin: "https://linkedin.com/in/username-anda",
-  github: "https://github.com/username-anda",
+  email: "mailto:Jerikhorrr@gmail.com",
+  linkedin: "https://linkedin.com/in/jerikho-ruben",
+  github: "https://github.com/jerikhorr",
 };
 
 // --- PROFILE IMAGE ---
@@ -73,36 +74,55 @@ export const projects = [
   },
   {
     title: "Portfolio Website",
-    description: "Web interface for generating images using OpenAI DALL-E API with prompt suggestions.",
+    description: "Modern portfolio built using React, Tailwind, and GSAP animations to showcase projects and skills.",
     tech: ["React", "Tailwind", "GSAP"],
     image: projectImg4,
     github: "https://github.com",
   },
-  
 ];
 
-// --- CERTIFICATES DATA ---
+// --- CERTIFICATES DATA (Updated) ---
 export const certificates = [
-  {
-    title: "Google Data Analytics Professional Certificate",
-    issuer: "Google",
-    date: "Oct 2024",
-    link: "https://coursera.org/verify/...",
-    icon: <SiGoogle className="text-4xl text-white" />,
+  { 
+    title: "Intro to Software Engineering", 
+    issuer: "RevoU", 
+    date: "May 2023", 
+    icon: <SiRevolut />,
+    link: "Revou.pdf" 
+  },
+  { 
+    title: "Python Intermediate", 
+    issuer: "Sololearn", 
+    date: "June 2025", 
+    icon: <SiSololearn />,
+    link: "PythonIntermediate.pdf"
+  },
+  { 
+    title: "HCIA-openGauss V1.0", 
+    issuer: "Huawei", 
+    date: "March 2025", 
+    icon: <SiHuawei />,
+    link: "HCIA-openGauss V1.0 Course.png"
+  },
+  { 
+    title: "HCIA-AI V3.5 Course", 
+    issuer: "Huawei", 
+    date: "July 2025", 
+    icon: <SiHuawei />,
+    link: "HCIA-AI V3.5 Course.png" 
   },
   {
-    title: "Complete Web Development Bootcamp",
-    issuer: "Udemy",
-    date: "Aug 2024",
-    link: "#",
-    icon: <SiUdemy className="text-4xl text-purple-400" />,
+    title: "Udemy Course", 
+    issuer: "Udemy", 
+    date: "Sep 2025", 
+    icon: <SiUdemy />,
+    link: "https://www.udemy.com/certificate/UC-c3d27cab-5f43-402d-8931-10fcb6b7f07a/" 
   },
   {
-    title: "Introduction to Cyber Security",
-    issuer: "Coursera",
-    date: "Jan 2024",
-    link: "#",
-    icon: <SiCoursera className="text-4xl text-blue-500" />,
-  },
-  // ... tambahkan sisanya di sini
+    title: "Data Classification & Summarization", 
+    issuer: "IBM", 
+    date: "Aug 2025", 
+    icon: <SiBiome />, // Menggunakan SiBiome atau SiUdemy sesuai preferensi
+    link: "https://portfolio-jerikho.vercel.app/" 
+  }
 ];
