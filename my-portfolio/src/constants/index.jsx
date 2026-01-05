@@ -1,4 +1,3 @@
-import projectImg from '../assets/tester.jpeg'; 
 import projectImg1 from '../assets/DjejakSoemoet.png'; 
 import profileImg from '../assets/profileimage.jpeg';
 import projectImg3 from '../assets/bimbingin.png';
