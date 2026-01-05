@@ -23,6 +23,14 @@ const ProjectsSection = () => {
     );
   }, []);
 
+  const handleCardClick = (project) => {
+    const targetLink = (project.demo && project.demo !== '#') ? project.demo : project.github;
+    
+    if (targetLink && targetLink !== '#') {
+      window.open(targetLink, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <section ref={sectionRef} id="projects" className="py-32 px-6 md:px-20 relative z-10">
       <div className="max-w-7xl mx-auto">
@@ -44,29 +52,41 @@ const ProjectsSection = () => {
             <div 
               key={index} 
               ref={el => cardsRef.current[index] = el}
+              onClick={() => handleCardClick(project)} // Menambahkan interaksi klik pada seluruh kartu
               className="group cursor-pointer"
             >
-              {/* Image Container - MODIFIED: Hapus Grayscale, Ganti Brightness */}
+              {/* Image Container */}
               <div className="relative aspect-video overflow-hidden rounded-lg mb-6 bg-surface border border-white/5 group-hover:border-primary/50 transition-colors duration-500">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  // PERUBAHAN DISINI: Hapus 'grayscale', tambah 'brightness-75' jadi 'brightness-110' saat hover
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out brightness-90 group-hover:brightness-110" 
                 />
                 
-                {/* Overlay Gradient Halus (Bukan Hitam Pekat) */}
+                {/* Overlay Gradient Halus */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-300"></div>
                 
-                {/* Floating Links */}
+                {/* Floating Links - Tetap ada untuk akses spesifik */}
                 <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-10">
                   {project.github && project.github !== '#' && (
-                    <a href={project.github} target="_blank" className="p-2 bg-white text-black rounded-full hover:bg-primary transition-colors shadow-lg shadow-primary/20">
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      // Mencegah klik tombol ini memicu klik pada kartu induknya (stopPropagation)
+                      onClick={(e) => e.stopPropagation()} 
+                      className="p-2 bg-white text-black rounded-full hover:bg-primary transition-colors shadow-lg shadow-primary/20"
+                    >
                       <FaGithub />
                     </a>
                   )}
                   {project.demo && project.demo !== '#' && (
-                    <a href={project.demo} target="_blank" className="p-2 bg-white text-black rounded-full hover:bg-primary transition-colors shadow-lg shadow-primary/20">
+                    <a 
+                      href={project.demo} 
+                      target="_blank"
+                      // Mencegah klik tombol ini memicu klik pada kartu induknya (stopPropagation)
+                      onClick={(e) => e.stopPropagation()} 
+                      className="p-2 bg-white text-black rounded-full hover:bg-primary transition-colors shadow-lg shadow-primary/20"
+                    >
                       <FaExternalLinkAlt size={12} />
                     </a>
                   )}

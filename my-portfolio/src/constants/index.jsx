@@ -4,7 +4,6 @@ import profileImg from '../assets/profileimage.jpeg';
 import projectImg3 from '../assets/bimbingin.png';
 import projectImg4 from '../assets/webport.png';
 
-// Import semua icons di sini
 import {
   FaReact, FaJsSquare, FaNodeJs, FaPython, FaJava, FaPhp, FaGithub,
   FaEnvelope, FaLinkedin, FaFigma, FaAward
@@ -15,7 +14,6 @@ import {
   SiSololearn, SiRevolut, SiHuawei, SiBiome // Tambahkan icon baru di sini
 } from 'react-icons/si';
 
-// --- NAVIGATION LINKS ---
 export const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
@@ -23,7 +21,6 @@ export const navLinks = [
   { name: 'Certificates', href: '#certificates' },
 ];
 
-// --- SOCIAL LINKS ---
 export const socialLinks = {
   email: "mailto:Jerikhorrr@gmail.com",
   linkedin: "https://linkedin.com/in/jerikho-ruben",
@@ -77,7 +74,7 @@ export const projects = [
     description: "Modern portfolio built using React, Tailwind, and GSAP animations to showcase projects and skills.",
     tech: ["React", "Tailwind", "GSAP"],
     image: projectImg4,
-    github: "https://github.com",
+    github: "https://github.com/Jerikhorr/portfolio-website/tree/main/my-portfolio",
   },
 ];
 
@@ -123,6 +120,6 @@ export const certificates = [
     issuer: "IBM", 
     date: "Aug 2025", 
     icon: <SiBiome />, // Menggunakan SiBiome atau SiUdemy sesuai preferensi
-    link: "https://portfolio-jerikho.vercel.app/" 
+    link: "https://www.credly.com/badges/e6c3952c-ce13-419a-82e9-1d469a028613" 
   }
 ];

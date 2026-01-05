@@ -34,7 +34,7 @@ const Preloader = ({ onComplete }) => {
       tl.to(textRef.current, { opacity: 0, duration: 0.5, delay: 0.2 })
         .to(barRef.current, { height: 0, duration: 0.5 }, "-=0.3")
         
-        // Animasi Container "Terangkat" (Curtain Effect)
+        // Animasi Container 
         .to(containerRef.current, { 
           y: "-100%", 
           duration: 1.2, 
